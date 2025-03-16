@@ -67,7 +67,6 @@ def wypozyczksiazke(users, ksiazki, imie, nazwisko, nazwaksiazki, pracownik):
     pracownik["wypozyczoneksiazki"] += 1
     user["eku"].append(nazwaksiazki)
     print(f'Użytkownik {imie} {nazwisko} wypożyczył książkę "{nazwaksiazki}".')
-# wypozyczksiazke(słowniki.users, słowniki.książki, "Jan", "Kowalski", "Pan Tadeusz")
 
 def zwrocksiazke(users, ksiazki, imie, nazwisko, nazwaksiazki):
     for user in users:
@@ -98,7 +97,7 @@ def zwrocksiazke(users, ksiazki, imie, nazwisko, nazwaksiazki):
     else:
         ksiazka["status"] = "dostępna"
         print(f'Użytkownik {imie} {nazwisko} zwrócił książkę "{nazwaksiazki}".')
-zwrocksiazke(słowniki.users,słowniki.książki,"Jan","Kowalski","Pan Tadeusz")
+        
 def hasło():
     r = random.randint(0,22)
     l = random.randint(0,76)

@@ -13,19 +13,6 @@ def listau():
         print(el["imie"])
         print(el["nazwisko"])
 
-def legenda():
-    print("Legenda opcji:")
-    print("a - Wyświetl listę książek dostępnych w bibliotece")
-    print("b - Sprawdź szczegółowe dane konkretnej książki")
-    print("c - Wyświetl listę użytkowników biblioteki")
-    print("d - Wypożycz książkę")
-    print("e - Zwróć książkę")
-    print("f - Dodaj nowego użytkownika do systemu")
-    print("g - Usuń książkę z biblioteki")
-    print("h - Przywróć usuniętą książkę")
-    print("i - Napraw uszkodzoną książkę")
-    print("l - Filtruj książki według liczby stron")
-
 def legendak():
     print("j - Wyświetl listę pracowników")
     print("k - Zmień stanowisko pracownika")
@@ -244,84 +231,71 @@ def dodajużytkownika(users, imie, nazwisko, maxlk):
     print(f'Dodano nowego użytkownika: {imie} {nazwisko}.')
 
 if hasło():
-    while True:
-        print("\nWybierz pracownika:")
-        for i in range(len(słowniki.pracownicy)):
-            print(f"{i}. {słowniki.pracownicy[i]['imie']} {słowniki.pracownicy[i]['nazwisko']}")
-
-        wybor = input("Numer pracownika (q = wyjście): ")
-
-
-if hasło():
-    while True:
-        print("\nWybierz pracownika:")
-        for i, pracownik in enumerate(słowniki.pracownicy):  
-            print(f"{i}. {pracownik['imie']} {pracownik['nazwisko']} ({pracownik['stanowisko']})")
-        
-        wybor = input("Numer pracownika (q = wyjście): ")
-        
-        if wybor == 'q':  
-            break 
-
-        nr = int(wybor)  
-        if 0 <= nr < len(słowniki.pracownicy):  
-            pracownik = słowniki.pracownicy[nr]  
-            print(f"\nWybrano pracownika: {pracownik['imie']} {pracownik['nazwisko']}, Stanowisko: {pracownik['stanowisko']}")
-            
-            if pracownik['stanowisko'] == "Kierownik":
-                legendak()
-            else:
-                legenda()
-            
-            while True:
-                opcja = input("\nWybierz opcję: ")
-                
-                if opcja == 'a':
-                    listak()
-                elif opcja == 'b':
-                    daneksiążki()
-                elif opcja == 'c':
-                    listau()
-                elif opcja == 'd':
-                    imie = input("Imię użytkownika: ")
-                    nazwisko = input("Nazwisko użytkownika: ")
-                    nazwaksiazki = input("Nazwa książki: ")
-                    wypozyczksiazke(słowniki.users, słowniki.książki, imie, nazwisko, nazwaksiazki, pracownik)
-                elif opcja == 'e':
-                    imie = input("Imię użytkownika: ")
-                    nazwisko = input("Nazwisko użytkownika: ")
-                    nazwaksiazki = input("Nazwa książki: ")
-                    zwrocksiazke(słowniki.users, słowniki.książki, imie, nazwisko, nazwaksiazki)
-                elif opcja == 'f':
-                    imie = input("Imię nowego użytkownika: ")
-                    nazwisko = input("Nazwisko nowego użytkownika: ")
-                    maxlk = int(input("Maksymalna liczba książek: "))
-                    dodajużytkownika(słowniki.users, imie, nazwisko, maxlk)
-                elif opcja == 'g':
-                    nazwaksiazki = input("Nazwa książki do usunięcia: ")
-                    usunksiazke(słowniki.książki, nazwaksiazki, słowniki.usunieteksiazki)
-                elif opcja == 'h':
-                    idksiazki = input("ID książki do przywrócenia: ")
-                    przywroksiazke(słowniki.książki, słowniki.usunieteksiazki, idksiazki)
-                elif opcja == 'i':
-                    nazwaksiazki = input("Nazwa książki do naprawy: ")
-                    naprawksiazke(słowniki.książki, nazwaksiazki)
-                elif opcja == 'l':
-                    lstron = int(input("Podaj liczbę stron: "))
-                    kpostronach(słowniki.książki, lstron)
-                elif opcja == 'j' and pracownik['stanowisko'] == "Kierownik":
-                    listapracownikow()
-                elif opcja == 'k' and pracownik['stanowisko'] == "Kierownik":
-                    imie = input("Imię pracownika: ")
-                    nazwisko = input("Nazwisko pracownika: ")
-                    nowe_stanowisko = input("Nowe stanowisko: ")
-                    awans(słowniki.pracownicy, imie, nazwisko, nowe_stanowisko)
-                elif opcja == 'q':
-                    print("Wylogowano pracownika.")
-                    break
-                else:
-                    print("Niepoprawna opcja, spróbuj ponownie.")
-        else:
-            print("Niepoprawny numer pracownika, spróbuj ponownie.")
-else:
-    print("Niepoprawne hasło. Program zakończony.")
+     while True:
+         print("\nWybierz pracownika:")
+         for i in range(len(słowniki.pracownicy)):
+             print(f"{i}. {słowniki.pracownicy[i]['imie']} {słowniki.pracownicy[i]['nazwisko']}")
+ 
+         wybor = input("Numer pracownika (q = wyjście): ")
+         
+         if wybor == 'q':  
+             break 
+ 
+         nr = int(wybor)  
+         if 0 <= nr < len(słowniki.pracownicy):  
+             pracownik = słowniki.pracownicy[nr]  
+             print(f"\nWybrano pracownika: {pracownik['imie']} {pracownik['nazwisko']}")
+             
+             while True:
+                 legendak()
+                 opcja = input("\nWybierz opcję: ")
+                 
+                 if opcja == 'a':
+                     listak()
+                 elif opcja == 'b':
+                     daneksiążki()
+                 elif opcja == 'c':
+                     listau()
+                 elif opcja == 'd':
+                     imie = input("Imię użytkownika: ")
+                     nazwisko = input("Nazwisko użytkownika: ")
+                     nazwaksiazki = input("Nazwa książki: ")
+                     wypozyczksiazke(słowniki.users, słowniki.książki, imie, nazwisko, nazwaksiazki, pracownik)
+                 elif opcja == 'e':
+                     imie = input("Imię użytkownika: ")
+                     nazwisko = input("Nazwisko użytkownika: ")
+                     nazwaksiazki = input("Nazwa książki: ")
+                     zwrocksiazke(słowniki.users, słowniki.książki, imie, nazwisko, nazwaksiazki)
+                 elif opcja == 'f':
+                     imie = input("Imię nowego użytkownika: ")
+                     nazwisko = input("Nazwisko nowego użytkownika: ")
+                     maxlk = int(input("Maksymalna liczba książek: "))
+                     dodajużytkownika(słowniki.users, imie, nazwisko, maxlk)
+                 elif opcja == 'g':
+                     nazwaksiazki = input("Nazwa książki do usunięcia: ")
+                     usunksiazke(słowniki.ksiazki, nazwaksiazki, słowniki.usunieteksiazki)
+                 elif opcja == 'h':
+                     idksiazki = input("ID książki do przywrócenia: ")
+                     przywroksiazke(słowniki.ksiazki, słowniki.usunieteksiazki, idksiazki)
+                 elif opcja == 'i':
+                     nazwaksiazki = input("Nazwa książki do naprawy: ")
+                     naprawksiazke(słowniki.książki, nazwaksiazki)
+                 elif opcja == 'l':
+                     lstron = int(input("Podaj liczbę stron: "))
+                     kpostronach(słowniki.książki, lstron)
+                elif opcja == 'j' 
+                     listapracownikow()
+                elif opcja == 'k' 
+                     imie = input("Imię pracownika: ")
+                     nazwisko = input("Nazwisko pracownika: ")
+                     nowe_stanowisko = input("Nowe stanowisko: ")
+                     awans(słowniki.pracownicy, imie, nazwisko, nowe_stanowisko)
+                 elif opcja == 'q':
+                     print("Wylogowano pracownika.")
+                     break
+                 else:
+                     print("Niepoprawna opcja, spróbuj ponownie.")
+         else:
+             print("Niepoprawny numer pracownika, spróbuj ponownie.")
+ else:
+     print("Niepoprawne hasło. Program zakończony.")

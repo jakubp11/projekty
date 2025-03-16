@@ -283,9 +283,9 @@ if hasło():
                  elif opcja == 'l':
                      lstron = int(input("Podaj liczbę stron: "))
                      kpostronach(słowniki.książki, lstron)
-                 elif opcja == 'j' 
+                 elif opcja == 'j': 
                      listapracownikow()
-                 elif opcja == 'k' 
+                 elif opcja == 'k': 
                      imie = input("Imię pracownika: ")
                      nazwisko = input("Nazwisko pracownika: ")
                      nowe_stanowisko = input("Nowe stanowisko: ")

@@ -191,9 +191,9 @@ def kpostronach(ksiazki, lstron):
     dluzsze = []
     for k in ksiazki:
         if k["strony"] < lstron:
-            krotsze.append(ksiazka)
+            krotsze.append(k)
         else:
-            dluzsze.append(ksiazka)
+            dluzsze.append(k)
     print(f'\nKsiążki krótsze niż {lstron} stron:')
     for ksiazka in krotsze:
         print(f'- {ksiazka["nazwa"]} ({ksiazka["strony"]} stron)')
